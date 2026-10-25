@@ -1,256 +1,230 @@
 Untimed macOS sample: 1 second, 1 ms sampling interval.
 
 Call graph:
-    848 main thread   DispatchQueue_1: com.apple.main-thread  (serial)
-      837 start  (in dyld) + 6992  [0x1862a44e4]
-      + 184 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4668,4308,...  [0x10259eb14,0x10259e9ac,...]  <roc-generated>:221
-      + 80 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 336  [0x1025a2538]  <roc-generated>:117
-      + ! 72 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-      + ! : 36 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
-      + ! : | 18 _platform_memset  (in libsystem_platform.dylib) + 180,208  [0x186679144,0x186679160]
-      + ! : | 17 __bzero  (in libsystem_platform.dylib) + 0  [0x186679030]
-      + ! : | 1 DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib) + 12  [0x1864a387c]
-      + ! : 30 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 132,92,...  [0x186488d44,0x186488d1c,...]
-      + ! : 5 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 12,120,...  [0x18649b0c8,0x18649b134,...]
-      + ! : 1 DYLD-STUB$$malloc  (in yatzy) + 4  [0x1025aff90]
-      + ! 5 roc_alloc  (in yatzy) + 36,108,...  [0x1023e67ac,0x1023e67f4,...]
-      + ! 3 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 500  [0x186488eb4]
-      + 49 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3660  [0x10259e724]  <roc-generated>:221
-      + ! 38 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-      + ! : 18 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
-      + ! : | 16 __bzero  (in libsystem_platform.dylib) + 0,24  [0x186679030,0x186679048]
-      + ! : | 2 DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib) + 12  [0x1864a387c]
-      + ! : 14 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 232,40,...  [0x186488da8,0x186488ce8,...]
-      + ! : 6 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 12,56,...  [0x18649b0c8,0x18649b0f4,...]
-      + ! 7 roc_alloc  (in yatzy) + 36,108,...  [0x1023e67ac,0x1023e67f4,...]
-      + ! 4 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 500,492  [0x186488eb4,0x186488eac]
-      + 46 list.RocList.reallocate  (in yatzy) + 400  [0x1025adb0c]
-      + ! 42 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 104  [0x1023e2b20]
-      + ! : 24 _realloc  (in libsystem_malloc.dylib) + 452  [0x18649bf14]
-      + ! : | 19 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 148  [0x18649b6f8]
-      + ! : | + 8 nanov2_realloc  (in libsystem_malloc.dylib) + 56  [0x186464c98]
-      + ! : | + ! 8 nanov2_pointer_size  (in libsystem_malloc.dylib) + 168,0,...  [0x1864628d8,0x186462830,...]
-      + ! : | + 8 nanov2_realloc  (in libsystem_malloc.dylib) + 264,16,...  [0x186464d68,0x186464c70,...]
-      + ! : | + 2 szone_realloc  (in libsystem_malloc.dylib) + 380  [0x186465ba4]
-      + ! : | + ! 1 small_try_realloc_in_place  (in libsystem_malloc.dylib) + 524  [0x1864677f4]
-      + ! : | + ! : 1 small_free_list_remove_ptr  (in libsystem_malloc.dylib) + 120  [0x186467a30]
-      + ! : | + ! 1 small_try_realloc_in_place  (in libsystem_malloc.dylib) + 568  [0x186467820]
-      + ! : | + !   1 small_free_list_add_ptr  (in libsystem_malloc.dylib) + 312  [0x186467520]
-      + ! : | + 1 default_zone_realloc  (in libsystem_malloc.dylib) + 32  [0x186464c5c]
-      + ! : | 3 nanov2_realloc  (in libsystem_malloc.dylib) + 388  [0x186464de4]
-      + ! : | 2 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 48,80  [0x18649b694,0x18649b6b4]
-      + ! : 8 _realloc  (in libsystem_malloc.dylib) + 252  [0x18649be4c]
-      + ! : | 8 nanov2_size  (in libsystem_malloc.dylib) + 220,32,...  [0x186462798,0x1864626dc,...]
-      + ! : 8 _realloc  (in libsystem_malloc.dylib) + 64,20,...  [0x18649bd90,0x18649bd64,...]
-      + ! : 1 DYLD-STUB$$realloc  (in yatzy) + 4  [0x1025affa8]
-      + ! : 1 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 220  [0x18649b740]
-      + ! 2 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 44,72  [0x1023e2ae4,0x1023e2b00]
-      + ! 2 _realloc  (in libsystem_malloc.dylib) + 504  [0x18649bf48]
-      + 43 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3820  [0x10259e7c4]  <roc-generated>:221
-      + ! 23 _nanov2_free  (in libsystem_malloc.dylib) + 576,260,...  [0x186488674,0x186488538,...]
-      + ! 8 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 16,52,...  [0x1023e231c,0x1023e2340,...]
-      + ! 6 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 32,0,...  [0x1025aad34,0x1025aad14,...]
-      + ! 3 DYLD-STUB$$free  (in yatzy) + 4  [0x1025aff78]
-      + ! 3 _free  (in libsystem_malloc.dylib) + 36,108  [0x18649bcf4,0x18649bd3c]
-      + 39 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7276  [0x10259f544]  <roc-generated>:221
-      + ! 30 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-      + ! : 15 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 40,64,...  [0x186488ce8,0x186488d00,...]
-      + ! : 12 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
-      + ! : | 10 __bzero  (in libsystem_platform.dylib) + 0,24  [0x186679030,0x186679048]
-      + ! : | 2 DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib) + 12  [0x1864a387c]
-      + ! : 3 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 4,64,...  [0x18649b0c0,0x18649b0fc,...]
-      + ! 8 roc_alloc  (in yatzy) + 20,108,...  [0x1023e679c,0x1023e67f4,...]
-      + ! 1 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 500  [0x186488eb4]
-      + 38 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 324,296,...  [0x1025a252c,0x1025a2510,...]  <roc-generated>:117
-      + 34 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7528  [0x10259f640]  <roc-generated>:221
-      + ! 13 _nanov2_free  (in libsystem_malloc.dylib) + 16,364,...  [0x186488444,0x1864885a0,...]
-      + ! 9 _free  (in libsystem_malloc.dylib) + 36,76,...  [0x18649bcf4,0x18649bd1c,...]
-      + ! 5 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 32,52  [0x1025aad34,0x1025aad48]
-      + ! 4 DYLD-STUB$$free  (in yatzy) + 0,4  [0x1025aff74,0x1025aff78]
-      + ! 3 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 48  [0x1023e233c]
-      + 33 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 768,776,...  [0x10259dbd8,0x10259dbe0,...]  <roc-generated>:217
-      + 33 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7928  [0x10259f7d0]  <roc-generated>:221
-      + ! 31 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-      + ! : 16 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 232,40,...  [0x186488da8,0x186488ce8,...]
+    main thread (sampled)
+      841 start  (in dyld) + 6992  [0x1862a44e4]
+      + 207 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4296,4668,...  [0x10093e9a0,0x10093eb14,...]  <roc-generated>:221
+      + 67 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 336  [0x100942538]  <roc-generated>:117
+      + ! 59 roc_alloc  (in yatzy) + 64  [0x1007867c8]
+      + ! : 28 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 40,132,...  [0x186488ce8,0x186488d44,...]
+      + ! : 24 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
+      + ! : | 13 __bzero  (in libsystem_platform.dylib) + 0  [0x186679030]
+      + ! : | 11 _platform_memset  (in libsystem_platform.dylib) + 180,176,...  [0x186679144,0x186679140,...]
+      + ! : 7 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 12,80,...  [0x18649b0c8,0x18649b10c,...]
+      + ! 6 roc_alloc  (in yatzy) + 40,20,...  [0x1007867b0,0x10078679c,...]
+      + ! 2 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 500  [0x186488eb4]
+      + 46 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3660  [0x10093e724]  <roc-generated>:221
+      + ! 41 roc_alloc  (in yatzy) + 64  [0x1007867c8]
+      + ! : 20 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 136,232,...  [0x186488d48,0x186488da8,...]
       + ! : 12 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
       + ! : | 8 __bzero  (in libsystem_platform.dylib) + 0  [0x186679030]
       + ! : | 4 _platform_memset  (in libsystem_platform.dylib) + 160  [0x186679130]
-      + ! : 3 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 56,80,...  [0x18649b0f4,0x18649b10c,...]
-      + ! 2 roc_alloc  (in yatzy) + 108  [0x1023e67f4]
-      + 33 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 8088  [0x10259f870]  <roc-generated>:221
-      + ! 20 _nanov2_free  (in libsystem_malloc.dylib) + 16,652,...  [0x186488444,0x1864886c0,...]
-      + ! 5 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 32,0  [0x1025aad34,0x1025aad14]
-      + ! 4 _free  (in libsystem_malloc.dylib) + 0,36,...  [0x18649bcd0,0x18649bcf4,...]
-      + ! 2 DYLD-STUB$$free  (in yatzy) + 0,4  [0x1025aff74,0x1025aff78]
-      + ! 2 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 48  [0x1023e233c]
-      + 25 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2972,2952,...  [0x10259e474,0x10259e460,...]  <roc-generated>:220
-      + 24 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-      + ! 21 _nanov2_free  (in libsystem_malloc.dylib) + 260,324,...  [0x186488538,0x186488578,...]
-      + ! 3 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 72,48  [0x1023e2354,0x1023e233c]
-      + 21 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 376  [0x1025a2560]  <roc-generated>:117
-      + ! 9 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1060  [0x1025ae180]
-      + ! : 6 _platform_memmove  (in libsystem_platform.dylib) + 12,428,...  [0x18667936c,0x18667950c,...]
-      + ! : 3 DYLD-STUB$$memmove  (in yatzy) + 4  [0x1025affcc]
-      + ! 7 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-      + ! : 5 _free  (in libsystem_malloc.dylib) + 76,0,...  [0x18649bd1c,0x18649bcd0,...]
-      + ! : 2 DYLD-STUB$$free  (in yatzy) + 4  [0x1025aff78]
-      + ! 3 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 0  [0x1025add5c]
-      + ! 2 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1036  [0x1025ae168]
-      + !   2 list.RocList.reallocate  (in yatzy) + 0  [0x1025ad97c]
-      + 18 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 84,1084,...  [0x1025addb0,0x1025ae198,...]
-      + 12 list.RocList.reallocate  (in yatzy) + 976,44,...  [0x1025add4c,0x1025ad9a8,...]
-      + 10 _nanov2_free  (in libsystem_malloc.dylib) + 856  [0x18648878c]
-      + 10 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4568  [0x10259eab0]  <roc-generated>:221
-      + ! 10 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0,24  [0x1025aad58,0x1025aad70]
-      + 10 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7148  [0x10259f4c4]  <roc-generated>:221
-      + ! 10 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 32,36  [0x1025aad34,0x1025aad38]
-      + 8 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1100,6864,...  [0x10259dd24,0x10259f3a8,...]  <roc-generated>:0
-      + 7 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3536  [0x10259e6a8]  <roc-generated>:221
-      + ! 7 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 32,36  [0x1025aad34,0x1025aad38]
-      + 7 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4196  [0x10259e93c]  <roc-generated>:221
-      + ! 7 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0,40,...  [0x1025aad58,0x1025aad80,...]
-      + 6 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 8004  [0x10259f81c]  <roc-generated>:221
-      + ! 6 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 20,0,...  [0x1025aad6c,0x1025aad58,...]
-      + 6 roc_llvm_rc_decref_91_single_thread  (in yatzy) + 160,36,...  [0x1025aac64,0x1025aabe8,...]
-      + 5 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1708  [0x10259df84]  <roc-generated>:0
-      + ! 5 list.listAppendRangeWithinUnsafe  (in yatzy) + 192,156,...  [0x1025ae42c,0x1025ae408,...]
-      + 5 roc_llvm_rc_decref_91_single_thread  (in yatzy) + 92  [0x1025aac20]
-      + ! 3 free_tiny  (in libsystem_malloc.dylib) + 456  [0x186466628]
-      + ! : 3 tiny_free_no_lock  (in libsystem_malloc.dylib) + 292,476,...  [0x1864668c0,0x186466978,...]
-      + ! 1 free_tiny  (in libsystem_malloc.dylib) + 668  [0x1864666fc]
-      + ! 1 roc_llvm_rc_decref_90_single_thread  (in yatzy) + 0  [0x1025ab358]
-      + 4 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1644  [0x10259df44]  <roc-generated>:0
-      + ! 4 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
+      + ! : 9 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 120,12,...  [0x18649b134,0x18649b0c8,...]
+      + ! 4 roc_alloc  (in yatzy) + 36,20  [0x1007867ac,0x10078679c]
+      + ! 1 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 500  [0x186488eb4]
+      + 46 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7928  [0x10093f7d0]  <roc-generated>:221
+      + ! 42 roc_alloc  (in yatzy) + 64  [0x1007867c8]
+      + ! : 19 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
+      + ! : | 14 __bzero  (in libsystem_platform.dylib) + 0,24  [0x186679030,0x186679048]
+      + ! : | 3 _platform_memset  (in libsystem_platform.dylib) + 160  [0x186679130]
+      + ! : | 2 DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib) + 12  [0x1864a387c]
+      + ! : 14 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 40,64,...  [0x186488ce8,0x186488d00,...]
+      + ! : 9 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 12,120,...  [0x18649b0c8,0x18649b134,...]
+      + ! 3 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 500,492  [0x186488eb4,0x186488eac]
+      + ! 1 roc_alloc  (in yatzy) + 28  [0x1007867a4]
+      + 41 list.RocList.reallocate  (in yatzy) + 400  [0x10094db0c]
+      + ! 36 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 104  [0x100782b20]
+      + ! : 25 _realloc  (in libsystem_malloc.dylib) + 452  [0x18649bf14]
+      + ! : | 16 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 148  [0x18649b6f8]
+      + ! : | + 7 nanov2_realloc  (in libsystem_malloc.dylib) + 56  [0x186464c98]
+      + ! : | + ! 7 nanov2_pointer_size  (in libsystem_malloc.dylib) + 244,0,...  [0x186462924,0x186462830,...]
+      + ! : | + 3 default_zone_realloc  (in libsystem_malloc.dylib) + 32  [0x186464c5c]
+      + ! : | + 3 nanov2_realloc  (in libsystem_malloc.dylib) + 60,16  [0x186464c9c,0x186464c70]
+      + ! : | + 3 szone_realloc  (in libsystem_malloc.dylib) + 380  [0x186465ba4]
+      + ! : | +   2 small_try_realloc_in_place  (in libsystem_malloc.dylib) + 524  [0x1864677f4]
+      + ! : | +   : 2 small_free_list_remove_ptr_no_clear  (in libsystem_malloc.dylib) + 108  [0x186467aec]
+      + ! : | +   1 small_try_realloc_in_place  (in libsystem_malloc.dylib) + 568  [0x186467820]
+      + ! : | +     1 small_free_list_add_ptr  (in libsystem_malloc.dylib) + 72  [0x186467430]
+      + ! : | 6 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 48,80,...  [0x18649b694,0x18649b6b4,...]
+      + ! : | 3 nanov2_realloc  (in libsystem_malloc.dylib) + 388,380  [0x186464de4,0x186464ddc]
+      + ! : 6 _realloc  (in libsystem_malloc.dylib) + 20,32,...  [0x18649bd64,0x18649bd70,...]
+      + ! : 4 _realloc  (in libsystem_malloc.dylib) + 252  [0x18649be4c]
+      + ! : | 4 nanov2_size  (in libsystem_malloc.dylib) + 324,240,...  [0x186462800,0x1864627ac,...]
+      + ! : 1 realloc  (in libsystem_malloc.dylib) + 0  [0x186463888]
+      + ! 3 _realloc  (in libsystem_malloc.dylib) + 504  [0x18649bf48]
+      + ! 2 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 44,68  [0x100782ae4,0x100782afc]
+      + 39 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 8088  [0x10093f870]  <roc-generated>:221
+      + ! 22 _nanov2_free  (in libsystem_malloc.dylib) + 364,260,...  [0x1864885a0,0x186488538,...]
+      + ! 7 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 72,16,...  [0x100782354,0x10078231c,...]
+      + ! 5 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 40,20,...  [0x10094ad3c,0x10094ad28,...]
+      + ! 4 _free  (in libsystem_malloc.dylib) + 76,0,...  [0x18649bd1c,0x18649bcd0,...]
+      + ! 1 DYLD-STUB$$free  (in yatzy) + 0  [0x10094ff74]
+      + 38 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7528  [0x10093f640]  <roc-generated>:221
+      + ! 22 _nanov2_free  (in libsystem_malloc.dylib) + 260,364,...  [0x186488538,0x1864885a0,...]
+      + ! 7 _free  (in libsystem_malloc.dylib) + 36,44,...  [0x18649bcf4,0x18649bcfc,...]
+      + ! 4 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 48,40,...  [0x10078233c,0x100782334,...]
+      + ! 4 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 20,0,...  [0x10094ad28,0x10094ad14,...]
+      + ! 1 DYLD-STUB$$free  (in yatzy) + 4  [0x10094ff78]
+      + 36 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3820  [0x10093e7c4]  <roc-generated>:221
+      + ! 21 _nanov2_free  (in libsystem_malloc.dylib) + 784,56,...  [0x186488744,0x18648846c,...]
+      + ! 5 _free  (in libsystem_malloc.dylib) + 36,76,...  [0x18649bcf4,0x18649bd1c,...]
+      + ! 4 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 20,52  [0x10094ad28,0x10094ad48]
+      + ! 3 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 72  [0x100782354]
+      + ! 2 DYLD-STUB$$free  (in yatzy) + 4  [0x10094ff78]
+      + ! 1 roc_dealloc  (in yatzy) + 4  [0x100786898]
+      + 31 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2936,2972,...  [0x10093e450,0x10093e474,...]  <roc-generated>:220
+      + 30 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7276  [0x10093f544]  <roc-generated>:221
+      + ! 26 roc_alloc  (in yatzy) + 64  [0x1007867c8]
+      + ! : 8 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 12,4,...  [0x18649b0c8,0x18649b0c0,...]
+      + ! : 8 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 552  [0x186488ee8]
+      + ! : | 6 __bzero  (in libsystem_platform.dylib) + 0,24  [0x186679030,0x186679048]
+      + ! : | 2 _platform_memset  (in libsystem_platform.dylib) + 160  [0x186679130]
+      + ! : 8 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 92,132,...  [0x186488d1c,0x186488d44,...]
+      + ! : 2 DYLD-STUB$$malloc  (in yatzy) + 4  [0x10094ff90]
+      + ! 4 roc_alloc  (in yatzy) + 36,56,...  [0x1007867ac,0x1007867c0,...]
+      + 26 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
+      + ! 21 _nanov2_free  (in libsystem_malloc.dylib) + 576,56,...  [0x186488674,0x18648846c,...]
+      + ! 5 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 48,72,...  [0x10078233c,0x100782354,...]
+      + 26 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 768,692,...  [0x10093dbd8,0x10093db8c,...]  <roc-generated>:217
+      + 25 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 296,308,...  [0x100942510,0x10094251c,...]  <roc-generated>:117
+      + 17 list.RocList.reallocate  (in yatzy) + 44,976,...  [0x10094d9a8,0x10094dd4c,...]
+      + 15 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 376  [0x100942560]  <roc-generated>:117
+      + ! 7 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
+      + ! : 5 _free  (in libsystem_malloc.dylib) + 0,76,...  [0x18649bcd0,0x18649bd1c,...]
+      + ! : 2 DYLD-STUB$$free  (in yatzy) + 4  [0x10094ff78]
+      + ! 5 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1060  [0x10094e180]
+      + ! : 4 DYLD-STUB$$memmove  (in yatzy) + 4  [0x10094ffcc]
+      + ! : 1 _platform_memmove  (in libsystem_platform.dylib) + 428  [0x18667950c]
+      + ! 3 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 0,8,...  [0x10094dd5c,0x10094dd64,...]
+      + 13 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1528,1084,...  [0x10094e354,0x10094e198,...]
+      + 12 _nanov2_free  (in libsystem_malloc.dylib) + 856  [0x18648878c]
+      + 12 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4568  [0x10093eab0]  <roc-generated>:221
+      + ! 12 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0,40,...  [0x10094ad58,0x10094ad80,...]
+      + 11 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 40,1676,...  [0x10093d900,0x10093df64,...]  <roc-generated>:0
+      + 10 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7148  [0x10093f4c4]  <roc-generated>:221
+      + ! 10 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 36,32,...  [0x10094ad38,0x10094ad34,...]
+      + 10 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 8004  [0x10093f81c]  <roc-generated>:221
+      + ! 10 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 24,0,...  [0x10094ad70,0x10094ad58,...]
+      + 9 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4196  [0x10093e93c]  <roc-generated>:221
+      + ! 9 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0,40,...  [0x10094ad58,0x10094ad80,...]
+      + 9 roc_llvm_rc_decref_91_single_thread  (in yatzy) + 48,40,...  [0x10094abf4,0x10094abec,...]
+      + 7 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1708  [0x10093df84]  <roc-generated>:0
+      + ! 7 list.listAppendRangeWithinUnsafe  (in yatzy) + 156,188,...  [0x10094e408,0x10094e428,...]
+      + 6 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3536  [0x10093e6a8]  <roc-generated>:221
+      + ! 6 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 36,4,...  [0x10094ad38,0x10094ad18,...]
+      + 5 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3736  [0x10093e770]  <roc-generated>:221
+      + ! 5 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0,4,...  [0x10094ad58,0x10094ad5c,...]
+      + 5 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7804  [0x10093f754]  <roc-generated>:221
+      + ! 5 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 20,32,...  [0x10094ad28,0x10094ad34,...]
+      + 5 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 808  [0x100942710]  <roc-generated>:117
+      + ! 3 _nanov2_free  (in libsystem_malloc.dylib) + 16,364,...  [0x186488444,0x1864885a0,...]
+      + ! 2 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 16,64  [0x10078231c,0x10078234c]
+      + 4 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1644  [0x10093df44]  <roc-generated>:0
+      + ! 4 roc_alloc  (in yatzy) + 64  [0x1007867c8]
       + !   3 szone_malloc_should_clear  (in libsystem_malloc.dylib) + 84  [0x186462c2c]
       + !   : 2 tiny_malloc_should_clear  (in libsystem_malloc.dylib) + 272  [0x186463dd8]
-      + !   : | 2 tiny_malloc_from_free_list  (in libsystem_malloc.dylib) + 1512  [0x1864649d0]
-      + !   : |   2 set_tiny_meta_header_in_use  (in libsystem_malloc.dylib) + 168,180  [0x186464bac,0x186464bb8]
-      + !   : 1 tiny_malloc_should_clear  (in libsystem_malloc.dylib) + 52  [0x186463cfc]
-      + !   :   1 rack_get_thread_index  (in libsystem_malloc.dylib) + 16  [0x18647dccc]
-      + !   1 szone_malloc_should_clear  (in libsystem_malloc.dylib) + 268  [0x186462ce4]
-      + 4 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7804  [0x10259f754]  <roc-generated>:221
-      + ! 3 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 36,32  [0x1025aad38,0x1025aad34]
-      + ! 1 roc_llvm_rc_decref_103_single_thread  (in yatzy) + 0  [0x1025ab214]
-      + 4 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 808  [0x1025a2710]  <roc-generated>:117
-      + ! 2 roc_llvm_rc_decref_25_single_thread  (in yatzy) + 16  [0x1025aa254]
-      + ! 1 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 40  [0x1023e2334]
-      + ! 1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      + 4 roc_cold_shim.roc_builtins_list_reserve_for_append  (in yatzy) + 584  [0x1025aa514]
-      + ! 4 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 104  [0x1023e2b20]
-      + !   4 _realloc  (in libsystem_malloc.dylib) + 452  [0x18649bf14]
-      + !     3 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 148  [0x18649b6f8]
-      + !     : 1 _szone_free  (in libsystem_malloc.dylib) + 592  [0x18647a808]
-      + !     : 1 nanov2_realloc  (in libsystem_malloc.dylib) + 56  [0x186464c98]
-      + !     : | 1 nanov2_pointer_size  (in libsystem_malloc.dylib) + 308  [0x186462964]
-      + !     : 1 nanov2_realloc  (in libsystem_malloc.dylib) + 132  [0x186464ce4]
-      + !     :   1 _nanov2_free  (in libsystem_malloc.dylib) + 700  [0x1864886f0]
-      + !     1 _malloc_zone_realloc  (in libsystem_malloc.dylib) + 80  [0x18649b6b4]
-      + 3 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2832  [0x10259e3e8]  <roc-generated>:220
-      + ! 3 roc_llvm_rc_decref_91_single_thread  (in yatzy) + 4,12,...  [0x1025aabc8,0x1025aabd0,...]
-      + 3 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 44,92,...  [0x1025a2414,0x1025a2444,...]  <roc-generated>:0
-      + 3 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 428  [0x1025a2594]  <roc-generated>:117
-      + ! 3 roc_llvm_rc_decref_67_single_thread  (in yatzy) + 20,36  [0x1025aa29c,0x1025aa2ac]
-      + 3 roc_llvm_rc_decref_79_single_thread  (in yatzy) + 108,112,...  [0x1025aa1c4,0x1025aa1c8,...]
-      + 3 roc_llvm_rc_decref_85_single_thread  (in yatzy) + 160  [0x1025aad0c]
-      + 2 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 996  [0x10259dcbc]  <roc-generated>:217
-      + ! 2 roc_llvm_rc_decref_72_single_thread  (in yatzy) + 20,32  [0x1025aae90,0x1025aae9c]
-      + 2 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2532  [0x10259e2bc]  <roc-generated>:220
-      + ! 2 roc_cold_shim.roc_builtins_list_reserve_for_append  (in yatzy) + 244,492  [0x1025aa3c0,0x1025aa4b8]
-      + 2 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3736  [0x10259e770]  <roc-generated>:221
-      + ! 2 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 20,44  [0x1025aad6c,0x1025aad84]
-      + 2 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7352  [0x10259f590]  <roc-generated>:221
-      + ! 2 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 20,44  [0x1025aad6c,0x1025aad84]
-      + 2 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 80  [0x1025a2438]  Yatzy:0
-      + 1 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 88  [0x1023e2364]
-      + 1 dev_wrappers.roc_builtins_list_with_capacity  (in yatzy) + 72  [0x1025ad940]
-      + ! 1 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
+      + !   : | 1 tiny_malloc_from_free_list  (in libsystem_malloc.dylib) + 1512  [0x1864649d0]
+      + !   : | + 1 set_tiny_meta_header_in_use  (in libsystem_malloc.dylib) + 224  [0x186464be4]
+      + !   : | 1 tiny_malloc_from_free_list  (in libsystem_malloc.dylib) + 1444  [0x18646498c]
+      + !   : 1 tiny_malloc_should_clear  (in libsystem_malloc.dylib) + 292  [0x186463dec]
+      + !   1 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 120  [0x18649b134]
+      + 4 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2832  [0x10093e3e8]  <roc-generated>:220
+      + ! 4 roc_llvm_rc_decref_91_single_thread  (in yatzy) + 12,4  [0x10094abd0,0x10094abc8]
+      + 4 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7352  [0x10093f590]  <roc-generated>:221
+      + ! 4 roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0,44  [0x10094ad58,0x10094ad84]
+      + 3 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 976  [0x10093dca8]  <roc-generated>:217
+      + ! 3 roc_llvm_rc_decref_74_single_thread  (in yatzy) + 0,20,...  [0x10094ae38,0x10094ae4c,...]
+      + 2 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 212,216  [0x100782b8c,0x100782b90]
+      + 2 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4368  [0x10093e9e8]  <roc-generated>:221
+      + ! 1 _szone_free  (in libsystem_malloc.dylib) + 176  [0x18647a668]
+      + ! 1 free_small  (in libsystem_malloc.dylib) + 244  [0x186465404]
+      + 2 roc_llvm_rc_decref_91_single_thread  (in yatzy) + 92  [0x10094ac20]
+      + ! 2 free_tiny  (in libsystem_malloc.dylib) + 456  [0x186466628]
+      + !   1 tiny_free_no_lock  (in libsystem_malloc.dylib) + 576  [0x1864669dc]
+      + !   : 1 tiny_free_list_add_ptr  (in libsystem_malloc.dylib) + 92  [0x186466ff4]
+      + !   1 tiny_free_no_lock  (in libsystem_malloc.dylib) + 512  [0x18646699c]
+      + 1 _szone_free  (in libsystem_malloc.dylib) + 592  [0x18647a808]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1020  [0x10093dcd4]  <roc-generated>:0
+      + ! 1 roc_llvm_rc_decref_79_single_thread  (in yatzy) + 12  [0x10094a164]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1044  [0x10093dcec]  <roc-generated>:0
+      + ! 1 roc_llvm_rc_decref_84_single_thread  (in yatzy) + 32  [0x10094ab3c]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 996  [0x10093dcbc]  <roc-generated>:217
+      + ! 1 roc_llvm_rc_decref_72_single_thread  (in yatzy) + 20  [0x10094ae90]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 1792  [0x10093dfd8]  <roc-generated>:220
+      + ! 1 roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy) + 28  [0x100942404]  <roc-generated>:0
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2452  [0x10093e26c]  <roc-generated>:220
+      + ! 1 roc_cold_shim.roc_builtins_list_slack_unique  (in yatzy) + 0  [0x10094a7d8]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2532  [0x10093e2bc]  <roc-generated>:220
+      + ! 1 roc_cold_shim.roc_builtins_list_reserve_for_append  (in yatzy) + 48  [0x10094a2fc]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2760  [0x10093e3a0]  <roc-generated>:220
+      + ! 1 roc_alloc  (in yatzy) + 64  [0x1007867c8]
       + !   1 szone_malloc_should_clear  (in libsystem_malloc.dylib) + 120  [0x186462c50]
       + !     1 small_malloc_should_clear  (in libsystem_malloc.dylib) + 176  [0x186462e0c]
-      + !       1 small_malloc_from_free_list  (in libsystem_malloc.dylib) + 548  [0x186463620]
-      + !         1 small_free_list_add_ptr  (in libsystem_malloc.dylib) + 72  [0x186467430]
-      + 1 free_small  (in libsystem_malloc.dylib) + 1108  [0x186465764]
-      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 2760  [0x10259e3a0]  <roc-generated>:220
-      + ! 1 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-      + !   1 szone_malloc_should_clear  (in libsystem_malloc.dylib) + 120  [0x186462c50]
-      + !     1 small_malloc_should_clear  (in libsystem_malloc.dylib) + 176  [0x186462e0c]
-      + !       1 small_malloc_from_free_list  (in libsystem_malloc.dylib) + 516  [0x186463600]
-      + !         1 small_free_list_remove_ptr  (in libsystem_malloc.dylib) + 120  [0x186467a30]
-      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4144  [0x10259e908]  <roc-generated>:221
-      + ! 1 roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-      + !   1 szone_malloc_should_clear  (in libsystem_malloc.dylib) + 120  [0x186462c50]
-      + !     1 small_malloc_should_clear  (in libsystem_malloc.dylib) + 108  [0x186462dc8]
-      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4368  [0x10259e9e8]  <roc-generated>:221
-      + ! 1 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 48  [0x1023e233c]
-      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 7608  [0x10259f690]  <roc-generated>:221
-      + ! 1 roc_cold_shim.roc_builtins_list_reserve_for_append  (in yatzy) + 320  [0x1025aa40c]
-      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 6732  [0x10259f324]  <roc-generated>:223
-      + 1 roc_alloc  (in yatzy) + 124  [0x1023e6804]
-      + 1 roc_llvm_rc_decref_84_single_thread  (in yatzy) + 160  [0x1025aabbc]
-      1 ???  (in <unknown binary>)  [0x14e0]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
+      + !       1 small_malloc_from_free_list  (in libsystem_malloc.dylib) + 36  [0x186463420]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 3340  [0x10093e5e4]  <roc-generated>:221
+      + ! 1 roc_cold_shim.roc_builtins_list_reserve_for_append  (in yatzy) + 336  [0x10094a41c]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4144  [0x10093e908]  <roc-generated>:221
+      + ! 1 roc_alloc  (in yatzy) + 64  [0x1007867c8]
+      + !   1 _malloc_zone_malloc  (in libsystem_malloc.dylib) + 12  [0x18649b0c8]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4848  [0x10093ebc8]  <roc-generated>:223
+      + ! 1 roc_llvm_rc_decref_89_single_thread  (in yatzy) + 4  [0x10094ad18]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 5336  [0x10093edb0]  <roc-generated>:223
+      + ! 1 roc_llvm_rc_decref_74_single_thread  (in yatzy) + 36  [0x10094ae5c]
+      + 1 roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy) + 4932  [0x10093ec1c]  <roc-generated>:223
+      + 1 roc__p80a3e9a1136aa51ab46e68df1ec18321.fast  (in yatzy) + 732  [0x100949ce0]  <roc-generated>:24011
+      + ! 1 roc_llvm_rc_decref_72_single_thread  (in yatzy) + 40  [0x10094aea4]
+      + 1 roc_cold_shim.roc_builtins_list_reserve_for_append  (in yatzy) + 660  [0x10094a560]
+      + ! 1 roc_alloc  (in yatzy) + 64  [0x1007867c8]
+      + !   1 nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 92  [0x186488d1c]
+      + 1 roc_llvm_rc_decref_79_single_thread  (in yatzy) + 48  [0x10094a188]
+      1 ???  (in <unknown binary>)  [0x13b0]
+      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
       +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x1e60]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
+      1 ???  (in <unknown binary>)  [0x2620]
+      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
       +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x2360]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
+      1 ???  (in <unknown binary>)  [0x30e0]
+      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
       +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x45f0]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
+      1 ???  (in <unknown binary>)  [0x6290]
+      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
       +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x5a28]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-      +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x5d10]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-      +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x6cb0]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-      +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x7ae0]
-      + 1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-      +   1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 ???  (in <unknown binary>)  [0x600003a38028]
-      + 1 list.RocList.reallocate  (in yatzy) + 400  [0x1025adb0c]
-      +   1 _RNvNtCs2eZl3yH68PI_4host9resources7realloc  (in yatzy) + 12  [0x1023e2ac4]
-      1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
+      1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
       + 1 _nanov2_free  (in libsystem_malloc.dylib) + 16  [0x186488444]
-      1 roc__d5  (in yatzy) + 24  [0x1025f8410]
+      1 roc__d5  (in yatzy) + 24  [0x100998410]
         1 _realloc  (in libsystem_malloc.dylib) + 452  [0x18649bf14]
-          1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-            1 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 16  [0x1023e231c]
+          1 dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
+            1 _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 16  [0x10078231c]
 
 Total number in stack (recursive counted multiple, when >=5):
-        16       _nanov2_free  (in libsystem_malloc.dylib) + 0  [0x186488434]
-        12       dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x1025ae1b0]
-        8       _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 0  [0x1023e230c]
-        8       roc_alloc  (in yatzy) + 64  [0x1023e67c8]
-        7       nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 0  [0x186488cc0]
-        6       roc_llvm_rc_decref_89_single_thread  (in yatzy) + 0  [0x1025aad14]
-        5       roc_alloc  (in yatzy) + 0  [0x1023e6788]
-        5       roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0  [0x1025aad58]
+        11       _nanov2_free  (in libsystem_malloc.dylib) + 0  [0x186488434]
+        8       dev_wrappers.roc_builtins_list_concat  (in yatzy) + 1108  [0x10094e1b0]
+        8       nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib) + 0  [0x186488cc0]
+        8       roc_alloc  (in yatzy) + 64  [0x1007867c8]
+        7       roc_llvm_rc_decref_89_single_thread  (in yatzy) + 0  [0x10094ad14]
+        6       _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy) + 0  [0x10078230c]
+        6       _malloc_zone_malloc  (in libsystem_malloc.dylib) + 0  [0x18649b0bc]
+        5       roc_llvm_rc_decref_82_single_thread  (in yatzy) + 0  [0x10094ad58]
 
 Sort by top of stack, same collapsed (when >= 5):
-        roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy)        251
-        _nanov2_free  (in libsystem_malloc.dylib)        98
-        nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib)        83
-        __bzero  (in libsystem_platform.dylib)        51
-        roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy)        43
-        roc_llvm_rc_decref_89_single_thread  (in yatzy)        36
-        roc_llvm_rc_decref_82_single_thread  (in yatzy)        27
-        roc_alloc  (in yatzy)        23
-        _platform_memset  (in libsystem_platform.dylib)        22
+        roc__p7255c70d62d6964b04a73cb8790c129c.fast  (in yatzy)        276
+        _nanov2_free  (in libsystem_malloc.dylib)        106
+        nanov2_malloc_type_zero_on_alloc  (in libsystem_malloc.dylib)        77
+        __bzero  (in libsystem_platform.dylib)        41
+        roc_llvm_rc_decref_82_single_thread  (in yatzy)        40
+        _malloc_zone_malloc  (in libsystem_malloc.dylib)        35
+        roc_llvm_rc_decref_89_single_thread  (in yatzy)        35
+        roc__pa647ab0f4cc869818056e17444790ff3.fast  (in yatzy)        26
+        _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy)        22
         _free  (in libsystem_malloc.dylib)        21
-        dev_wrappers.roc_builtins_list_concat  (in yatzy)        21
-        _RNvNtCs2eZl3yH68PI_4host9resources7dealloc  (in yatzy)        20
-        _malloc_zone_malloc  (in libsystem_malloc.dylib)        17
-        list.RocList.reallocate  (in yatzy)        14
-        DYLD-STUB$$free  (in yatzy)        11
-        nanov2_realloc  (in libsystem_malloc.dylib)        11
-        _realloc  (in libsystem_malloc.dylib)        10
-        nanov2_pointer_size  (in libsystem_malloc.dylib)        9
-        roc_llvm_rc_decref_91_single_thread  (in yatzy)        9
-        nanov2_size  (in libsystem_malloc.dylib)        8
-        _platform_memmove  (in libsystem_platform.dylib)        6
-        DYLD-STUB$$_platform_bzero  (in libsystem_malloc.dylib)        5
-        list.listAppendRangeWithinUnsafe  (in yatzy)        5
+        _platform_memset  (in libsystem_platform.dylib)        20
+        list.RocList.reallocate  (in yatzy)        17
+        dev_wrappers.roc_builtins_list_concat  (in yatzy)        16
+        roc_alloc  (in yatzy)        15
+        roc_llvm_rc_decref_91_single_thread  (in yatzy)        13
+        _realloc  (in libsystem_malloc.dylib)        9
+        list.listAppendRangeWithinUnsafe  (in yatzy)        7
+        nanov2_pointer_size  (in libsystem_malloc.dylib)        7
+        DYLD-STUB$$free  (in yatzy)        6
+        _malloc_zone_realloc  (in libsystem_malloc.dylib)        6
+        nanov2_realloc  (in libsystem_malloc.dylib)        6

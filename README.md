@@ -11,7 +11,8 @@ legal choice using dynamic programming and fair-dice probabilities, with
 
 ## Try it
 
-Install [Mise](https://mise.jdx.dev/) and Python 3.9+ for the verification tools.
+Install [Mise](https://mise.jdx.dev/). Python 3.9+ is only needed for the
+independent verification tool; the solver and benchmark are Roc.
 The Roc nightly and CLI platform are pinned; the first build downloads them.
 
 ```sh
@@ -58,14 +59,19 @@ combinations live in [Yatzy.roc](Yatzy.roc).
 
 ## How fast?
 
-**25.335 seconds** for a full solve on an **Apple M5, 32 GiB RAM**,
-macOS 26.6.2. Median of five fresh processes; range **25.300–25.518 s**.
+**25.409 seconds** for a full solve on an **Apple M5, 32 GiB RAM**,
+macOS 26.6.2. Median of five fresh processes; range **25.195–25.877 s**.
 The solver uses one CPU core, with no saved memo between runs. Compilation is
 excluded. [Method, raw runs, and profile](reports/benchmark.md).
 
 ```sh
-python3 benchmark.py --runs 5 --output /var/tmp/yatzy-benchmark.json
+mise exec -- roc benchmark.roc -- --runs 5 --output /var/tmp/yatzy-benchmark.json
 ```
+
+The harness builds the optimized solver, launches a fresh process per sample,
+and validates its score and state count. Roc's monotonic clock measures elapsed
+time; `/usr/bin/time` supplies child CPU usage on macOS and Linux. Compilation
+and the optional macOS `--profile FILE` run are excluded. Run from the repo root.
 
 ## A small strategy surprise
 

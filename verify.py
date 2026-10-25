@@ -101,17 +101,30 @@ def main():
                         (ROOT / "mise.toml").read_text(), re.MULTILINE)[1]
     actual_version = subprocess.check_output([*ROC, "--version"], cwd=ROOT, text=True)
     assert version in actual_version, actual_version
-    assert f'roc: "{version}"' in (ROOT / "main.roc").read_text()
+    for app in ("main.roc", "benchmark.roc"):
+        assert f'roc: "{version}"' in (ROOT / app).read_text()
     for command in (
         [*ROC, "fmt", "--check", "."],
         [*ROC, "check", "main.roc"],
         [*ROC, "test", "main.roc"],
+        [*ROC, "check", "benchmark.roc"],
+        [*ROC, "test", "benchmark.roc"],
     ):
         subprocess.run(command, cwd=ROOT, check=True)
 
     with TemporaryDirectory(prefix="yatzy-verify-", dir="/var/tmp") as directory:
         binary = str(Path(directory) / "yatzy")
         subprocess.run([*ROC, "build", "--opt=speed", f"--output={binary}", "main.roc"], cwd=ROOT, check=True)
+
+        harness = str(Path(directory) / "benchmark")
+        subprocess.run([*ROC, "build", "--opt=speed", f"--output={harness}", "benchmark.roc"], cwd=ROOT, check=True)
+        help_text = subprocess.check_output([harness, "--help"], text=True)
+        assert "--runs N" in help_text and "--profile FILE" in help_text
+        invalid_runs = subprocess.run([harness, "--runs", "0"], capture_output=True, text=True)
+        assert invalid_runs.returncode != 0 and "InvalidArguments" in invalid_runs.stderr
+        # Refuse to benchmark an unrelated working directory with missing sources.
+        missing_source = subprocess.run([harness, "--runs", "1"], cwd=directory, capture_output=True, text=True)
+        assert missing_source.returncode != 0 and "NotFound" in missing_source.stderr
 
         def run(*args):
             return subprocess.check_output([binary, *map(str, args)], text=True, timeout=60).strip()
