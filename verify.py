@@ -122,9 +122,14 @@ def main():
         assert "--runs N" in help_text and "--profile FILE" in help_text
         invalid_runs = subprocess.run([harness, "--runs", "0"], capture_output=True, text=True)
         assert invalid_runs.returncode != 0 and "InvalidArguments" in invalid_runs.stderr
-        # Refuse to benchmark an unrelated working directory with missing sources.
-        missing_source = subprocess.run([harness, "--runs", "1"], cwd=directory, capture_output=True, text=True)
-        assert missing_source.returncode != 0 and "NotFound" in missing_source.stderr
+        # The underlying error varies: an unrelated directory can lack either
+        # a Mise compiler selection or the source files. Both must refuse the
+        # benchmark, explain the working-directory requirement, and write no report.
+        missing_report = Path(directory) / "invalid-benchmark.json"
+        missing_source = subprocess.run([harness, "--runs", "1", "--output", str(missing_report)],
+                                        cwd=directory, capture_output=True, text=True)
+        assert missing_source.returncode != 0 and "Run from the repository root." in missing_source.stderr, missing_source.stderr
+        assert not missing_report.exists()
 
         def run(*args):
             return subprocess.check_output([binary, *map(str, args)], text=True, timeout=60).strip()
