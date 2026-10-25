@@ -1,0 +1,73 @@
+{
+  "date_utc": "2026-10-25T21:24:27.763006+00:00",
+  "machine": {
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpus": 10,
+    "cpu": "Apple M5",
+    "memory_bytes": 34359738368
+  },
+  "compiler": "Roc compiler version nightly-2026-10-25-72704da",
+  "build_flags": [
+    "--opt=speed",
+    "--debug"
+  ],
+  "workload": "solve: all 15 categories, upper subtotal 0; fresh process and memo every run",
+  "includes": "process startup, full DP computation, result printing",
+  "excludes": "compilation, package downloads, optional separate profiling run",
+  "source_sha256": {
+    "main.roc": "40dfec0685cde57acb6d8741a792f85b5e99237b13b679ada7470ebefd2558e5",
+    "Solver.roc": "ef53dfa2915baf6488eb818ab410a2eca87e4890da6ecf8f077f74169906fd7a",
+    "Yatzy.roc": "b5a121a18d2673ea97e15969f736bc6d8f22474d930e2ae4ba1d7818194e1887",
+    "mise.toml": "b68a0131fa6da1dff0e3ce7c1f13f1c7750ca9621d2e7f2ff99af7019e55bd06"
+  },
+  "samples": [
+    {
+      "wall_seconds": 25.518487708,
+      "cpu_seconds": 25.457069999999998,
+      "score": 248.4399893778553,
+      "states": 947711
+    },
+    {
+      "wall_seconds": 25.360390000000002,
+      "cpu_seconds": 25.295980000000007,
+      "score": 248.4399893778553,
+      "states": 947711
+    },
+    {
+      "wall_seconds": 25.335088666000004,
+      "cpu_seconds": 25.281117999999996,
+      "score": 248.4399893778553,
+      "states": 947711
+    },
+    {
+      "wall_seconds": 25.33206662500001,
+      "cpu_seconds": 25.277822999999998,
+      "score": 248.4399893778553,
+      "states": 947711
+    },
+    {
+      "wall_seconds": 25.299880333000004,
+      "cpu_seconds": 25.24692300000001,
+      "score": 248.4399893778553,
+      "states": 947711
+    }
+  ],
+  "profile": "benchmark-profile.txt",
+  "load_average_before": [
+    2.888671875,
+    2.29931640625,
+    2.126953125
+  ],
+  "load_average_after": [
+    3.28076171875,
+    2.63330078125,
+    2.28173828125
+  ],
+  "median_seconds": 25.335088666000004,
+  "min_seconds": 25.299880333000004,
+  "max_seconds": 25.518487708,
+  "median_cpu_to_wall_ratio": 0.9978586972076539,
+  "successful_runs": 5,
+  "failed_runs": 0
+}

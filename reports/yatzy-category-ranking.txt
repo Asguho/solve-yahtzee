@@ -1,0 +1,22 @@
+Danish five-dice Yatzy: expected points per fresh turn
+
+Commit to one category before rolling; choose holds optimally, with up to three rolls.
+These values exclude the upper bonus and the rest of the scorecard.
+This is a ranking of category-targeting values, not a fixed whole-game scoring priority.
+
+Rank  Category                 Expected points
+ 1.   Chance                   23.333333
+ 2.   Sixes                    12.638889
+ 3.   Two pairs                11.907547
+ 4.   One pair                 10.628797
+ 5.   Fives                    10.532407
+ 6.   Three of a kind          9.545416
+ 7.   Fours                    8.425926
+ 8.   Full house               6.965727
+ 9.   Threes                   6.319444
+10.   Four of a kind           4.572357
+11.   Twos                     4.212963
+12.   Large straight           3.936582
+13.   Small straight           2.952436
+14.   Yatzy                    2.301432
+15.   Ones                     2.106481

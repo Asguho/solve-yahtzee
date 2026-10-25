@@ -1,0 +1,27 @@
+Danish five-dice Yatzy: ideal first score plus optimal remaining game
+
+Start with an empty scorecard. Guarantee the maximum score in one category now.
+Then play the remaining 14 turns optimally with fair dice.
+Rank by expected final score, including the upper bonus and the guaranteed first score.
+Only the first result is guaranteed. Later rolls are random.
+
+Rank  Category                 Score now  Expected final score
+ 1.   Yatzy                       50      280.121662
+ 2.   Sixes                       30      270.337642
+ 3.   Fives                       25      266.089581
+ 4.   Fours                       20      262.417494
+ 5.   Threes                      15      258.640914
+ 6.   Four of a kind              24      256.362760
+ 7.   Large straight              20      254.971866
+ 8.   Full house                  28      254.487568
+ 9.   Twos                        10      254.325782
+10.   Small straight              15      251.947718
+11.   Ones                         5      248.735842
+12.   Chance                      30      247.625226
+13.   Three of a kind             18      246.015398
+14.   Two pairs                   22      245.254696
+15.   One pair                    12      240.444004
+
+Reproduce:
+mise exec -- roc build --opt=speed --output=/var/tmp/yatzy main.roc
+/var/tmp/yatzy rank
